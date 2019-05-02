@@ -53,3 +53,30 @@ function tskone_customize_preview_js() {
 	wp_enqueue_script( 'tskone-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'tskone_customize_preview_js' );
+
+if ( class_exists('Kirki') ) {
+	Kirki::add_config( 'tskone_theme', array(
+		'capability'    => 'edit_theme_options',
+		'option_type'   => 'theme_mod',
+	) );
+	Kirki::add_panel( 'header', array(
+	    'priority'    => 10,
+	    'title'       => esc_html__( 'Header', 'tskone' ),
+	    'description' => esc_html__( 'Option for the Header', 'tskone' ),
+	) );
+	Kirki::add_section( 'header_section', array(
+	    'title'          => esc_html__( 'Header Section', 'tskone' ),
+	    'description'    => esc_html__( 'change the look & feel of header.', 'tskone' ),
+	    'panel'          => 'header',
+	    'priority'       => 160,
+	) );
+	Kirki::add_field( 'tskone_theme', [
+		'type'        => 'checkbox',
+		'settings'    => 'sticky_setting',
+		'label'       => esc_html__( 'Sticky Header', 'tskone' ),
+		'description' => esc_html__( 'Stickied to the top (scrolls with the page until it reaches the top, then stays there)', 'tskone' ),
+		'section'     => 'header_section',
+		'default'     => true,
+	] );
+
+}

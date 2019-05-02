@@ -134,6 +134,16 @@ require get_parent_theme_file_path( '/inc/widgets.php' );
  */
 require get_parent_theme_file_path( '/inc/scripts.php' );
 
+/**
+ * BS NavWalker Enqueue.
+ */
+require get_parent_theme_file_path( '/inc/class-wp-bootstrap-navwalker.php' );
+
+
+/**
+ * Required Plugin activation
+ */
+require get_parent_theme_file_path( '/inc/plugin-activation.php' );
 
 /**
  * Load Jetpack compatibility file.
