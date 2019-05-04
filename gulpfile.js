@@ -40,6 +40,8 @@ var jsSRC = [
     js + 'skip-link-focus-fix.js'
 ];
 
+// nodeDir + 'material-design-lite/material.min.js'
+
 //	js + 'tether.min.js', is nolonger used
 //  js + 'bootstrap.bundle.js',
 //  js + 'prism.js',
@@ -50,6 +52,7 @@ var jsSRC = [
 // Used to concat the files in a specific order.
 var cssSRC =  [
   // root + 'src/css/bootstrap.css',
+  // nodeDir + material-design-lite/material.min.css
   root + 'fonts/font-awesome/css/all.css',
   root + 'style.css'
 ];
@@ -90,6 +93,8 @@ var zipSRC 			= [
 
 
 // return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+// /node_modules/material-design-lite/material.min.js
+// /node_modules/material-design-lite/material.min.css
 function css() {
   return gulp.src([scss + 'style.scss'])
   .pipe(sourcemaps.init({loadMaps: true}))
