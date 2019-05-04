@@ -24,8 +24,8 @@
 <body <?php body_class(); ?>>
 <?php
 	$navbarSticky = (get_theme_mod( 'sticky_setting' ) == true ? ' fixed-top' : null);
-	$navbarColorSch = get_theme_mod( 'navbar_color' );
-	switch ($navbarColorSch) {
+	$navbarColorScheme = get_theme_mod( 'navbar_color' );
+	switch ($navbarColorScheme) {
     case '#6B757D':
         $navbarColor = 'navbar-dark';
         $navbarBackground = 'bg-secondary';
@@ -58,24 +58,30 @@
     	$navbarColor = 'navbar-dark';
         $navbarBackground = 'bg-primary';
 }
-	// var_dump($headerSticky);
+
+
+	// var_dump($navbarColorScheme);
 ?>
+
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tskone' ); ?></a>
+	<!-- <div class="banner">
+		<h1>Sample Banner</h1>
+	</div> -->
 	<header id="masthead" class="site-header container-fluid">
-		<nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground?>" role="navigation" >
+		<nav id="menu" class="navbar<?php echo $navbarSticky; ?> navbar-expand-lg navbar-light bg-dark" role="navigation" >
 			<div class="container">
 				<div class="site-branding navbar-brand">
 					<?php
 					the_custom_logo();
 					if ( is_front_page() && is_home() ) :
 						?>
-						<h1 class="site-title text-reset"><a class="text-reset" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						<?php
 					else :
 						?>
-						<p class="site-title"><a class="text-reset" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 						<?php
 					endif;
 					$tskone_description = get_bloginfo( 'description', 'display' );

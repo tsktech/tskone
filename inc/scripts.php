@@ -33,3 +33,28 @@ function tskone_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tskone_scripts' );
+
+// change th login-logo
+function tskone_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/dist/images/LogoTsktechwithGlow.png);
+			height:120px;
+			width:350px;
+			background-size: 350px 120px;
+			background-repeat: no-repeat;
+	        	padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'tskone_login_logo' );
+
+function tskone_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'tskone_login_logo_url' );
+
+function tskone_login_logo_url_title() {
+    return 'TSKOne Theme development WP';
+}
+add_filter( 'login_headertitle', 'tskone_login_logo_url_title' );

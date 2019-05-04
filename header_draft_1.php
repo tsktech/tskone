@@ -23,59 +23,45 @@
 
 <body <?php body_class(); ?>>
 <?php
-	$navbarSticky = (get_theme_mod( 'sticky_setting' ) == true ? ' fixed-top' : null);
-	$navbarColorSch = get_theme_mod( 'navbar_color' );
-	switch ($navbarColorSch) {
-    case '#6B757D':
-        $navbarColor = 'navbar-dark';
-        $navbarBackground = 'bg-secondary';
-        break;
-    case '#29A645':
-        $navbarColor = 'navbar-dark';
-        $navbarBackground = 'bg-success';
-        break;
-    case '#DC3545':
-    	$navbarColor = 'navbar-dark';
-        $navbarBackground = 'bg-danger';
-        break;
-    case '#FEC105':
-    	$navbarColor = 'navbar-light';
-        $navbarBackground = 'bg-warning';
-    	break;
-    case '#17A2B8':
-    	$navbarColor = 'navbar-dark';
-        $navbarBackground = 'bg-info';
-    	break;
-    case '#F8F9FA':
-    	$navbarColor = 'navbar-light';
-        $navbarBackground = 'bg-light';
-    	break;
-    case '#343A40':
-    	$navbarColor = 'navbar-dark';
-        $navbarBackground = 'bg-dark';
-    	break;
-    default:
-    	$navbarColor = 'navbar-dark';
-        $navbarBackground = 'bg-primary';
-}
+	/*$headerSticky = null;
+	if (get_theme_mod( 'sticky_setting', true )) {
+		$headerSticky = " fixed-top";
+	}*/
+	// $fixed = (stanleywp_option('disable_fixed_navbar') == '1' ? 'fixed-top' : '');
+	$headerSticky = (get_theme_mod( 'sticky_setting' ) == true ? ' fixed-top' : null);
 	// var_dump($headerSticky);
 ?>
 
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tskone' ); ?></a>
+<!-- 	<div class="top-bar">
+      For sles inquiries, call +1(866)965-1533 or <a href="#">Request a free demo</a>
+    </div> -->
+
+	<div class="banner">
+		<h1>Sample Banner</h1>
+	</div>
+
 	<header id="masthead" class="site-header container-fluid">
-		<nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground?>" role="navigation" >
+		<!-- <h1 class="display-1 m-0">Heelo Transform</h1>
+		<p class="lead">Customise the Header</p>
+ -->
+		<!-- <div class="container" id="topContent" >
+			Heelo Transform Customise the Header
+		</div> --><!-- #topContent.container -->
+		<nav id="menu" class="navbar<?php echo $headerSticky; ?> navbar-expand-lg navbar-light bg-light" role="navigation" >
 			<div class="container">
 				<div class="site-branding navbar-brand">
 					<?php
 					the_custom_logo();
 					if ( is_front_page() && is_home() ) :
 						?>
-						<h1 class="site-title text-reset"><a class="text-reset" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						<?php
 					else :
 						?>
-						<p class="site-title"><a class="text-reset" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 						<?php
 					endif;
 					$tskone_description = get_bloginfo( 'description', 'display' );

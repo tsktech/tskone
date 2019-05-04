@@ -59,24 +59,38 @@ if ( class_exists('Kirki') ) {
 		'capability'    => 'edit_theme_options',
 		'option_type'   => 'theme_mod',
 	) );
-	Kirki::add_panel( 'header', array(
+	Kirki::add_panel( 'theme_mod', array(
 	    'priority'    => 10,
-	    'title'       => esc_html__( 'Header', 'tskone' ),
-	    'description' => esc_html__( 'Option for the Header', 'tskone' ),
+	    'title'       => esc_html__( 'Theme Customisation', 'tskone' ),
+	    'description' => esc_html__( 'Customisation of theme', 'tskone' ),
 	) );
-	Kirki::add_section( 'header_section', array(
-	    'title'          => esc_html__( 'Header Section', 'tskone' ),
-	    'description'    => esc_html__( 'change the look & feel of header.', 'tskone' ),
-	    'panel'          => 'header',
+	Kirki::add_section( 'navbar_section', array(
+	    'title'          => esc_html__( 'Navbar Section', 'tskone' ),
+	    'description'    => esc_html__( 'change the look & feel of header navbar.', 'tskone' ),
+	    'panel'          => 'theme_mod',
 	    'priority'       => 160,
 	) );
 	Kirki::add_field( 'tskone_theme', [
 		'type'        => 'checkbox',
 		'settings'    => 'sticky_setting',
 		'label'       => esc_html__( 'Sticky Header', 'tskone' ),
-		'description' => esc_html__( 'Stickied to the top (scrolls with the page until it reaches the top, then stays there)', 'tskone' ),
-		'section'     => 'header_section',
-		'default'     => true,
+		'description' => esc_html__( 'Navbar scrolls with the page until it reaches the top, then stays there)', 'tskone' ),
+		'section'     => 'navbar_section',
+		'default'     => false,
 	] );
+	Kirki::add_field( 'tskone_theme', [
+		'type'        => 'color-palette',
+		'settings'    => 'navbar_color',
+		'label'       => esc_html__( 'Navbar Color Scheme', 'tskone' ),
+		'description' => esc_html__( 'Customise the Navbar Color & Menu Text', 'tskone' ),
+		'section'     => 'navbar_section',
+		'default'     => '#007BFF',
+		'choices'     => [
+			'colors' => [ '#007BFF', '#6B757D', '#29A645', '#DC3545', '#FEC105', '#17A2B8', '#F8F9FA', '#343A40' ],
+			'style'  => 'round',
+			'size'   => 25,
+		],
+	] );
+
 
 }

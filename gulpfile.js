@@ -18,11 +18,12 @@ var gulp     	 = require( 'gulp' ),
 	lineec       = require( 'gulp-line-ending-corrector' ),
 	zip          = require( 'gulp-zip');
 
-var root 	= './',
-    scss  	= root + 'sass/',
-    js  	= root + 'src/js/',
-    jsdist  = root + 'dist/js/',
-    zipDEST	= root + 'zipFiles';
+var root     = './',
+    scss     = root + 'sass/',
+    js       = root + 'src/js/',
+    jsdist   = root + 'dist/js/',
+    nodeDir  = root + 'node_modules/' ,
+    zipDEST  = root + 'zipFiles/';
 
 //    root  = '../' + themename + '/',
 
@@ -33,7 +34,7 @@ var PHPWatchFiles  = root + '**/*.php',
 
 // Used to concat the files in a specific order.
 var jsSRC = [
-    js + 'bootstrap.min.js',
+    // js + 'bootstrap.min.js',
     js + 'bootstrap-hover.js',
     js + 'nav-scroll.js',
     js + 'skip-link-focus-fix.js'
@@ -48,14 +49,17 @@ var jsSRC = [
 
 // Used to concat the files in a specific order.
 var cssSRC =  [
-  root + 'src/css/bootstrap.css',
+  // root + 'src/css/bootstrap.css',
   root + 'fonts/font-awesome/css/all.css',
   root + 'style.css'
 ];
 
 // root + 'src/css/all.css',
 // root + 'src/css/prism.css',
-//
+// // root + 'src/css/bootstrap.css',
+//  root + 'fonts/font-awesome/css/all.css',
+  //root + 'style.css'
+// nodeDir + 'bootstrap/scss/bootstrap.scss',
 
 var imgSRC 	= root + 'src/images/*',
     imgDEST = root + 'dist/images/';
@@ -84,6 +88,8 @@ var zipSRC 			= [
 	'!zipFile'
 ];
 
+
+// return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
 function css() {
   return gulp.src([scss + 'style.scss'])
   .pipe(sourcemaps.init({loadMaps: true}))

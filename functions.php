@@ -88,6 +88,18 @@ function tskone_add_editor_style () {
 }
 add_action('admin_init','tskone_add_editor_style');
 
+/*function tskone_login_logo_one() {
+	?>
+		<style type="text/css">
+			body.login div#login h1 a {
+				background-image: url(https://www.tsktech.in/wp-content/uploads/2017/11/LogoTsktechwithGlow.png);  //Add your own logo image in this url
+				padding-bottom: 30px;
+			}
+		</style>
+ 	<?php
+}
+add_action( 'login_enqueue_scripts', 'tskone_login_logo_one' );*/
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
