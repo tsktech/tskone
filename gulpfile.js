@@ -34,7 +34,7 @@ var PHPWatchFiles  = root + '**/*.php',
 
 // Used to concat the files in a specific order.
 var jsSRC = [
-    // js + 'bootstrap.min.js',
+    js + 'bootstrap.js',
     js + 'bootstrap-hover.js',
     js + 'nav-scroll.js',
     js + 'skip-link-focus-fix.js'
@@ -147,7 +147,7 @@ function watch() {
   browserSync.init({
     open: 'external',
     proxy: 'http://localhost:8888/mydev',
-    port: 8090,
+    port: 8060,
 	browser: 'google chrome'
   });
   gulp.watch(styleWatchFiles, gulp.series([css, concatCSS]));
